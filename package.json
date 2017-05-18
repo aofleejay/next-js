@@ -1,0 +1,26 @@
+{
+  "name": "next-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aofleejay/next-js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aofleejay/next-js/issues"
+  },
+  "homepage": "https://github.com/aofleejay/next-js#readme",
+  "dependencies": {
+    "next": "beta",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  }
+}
