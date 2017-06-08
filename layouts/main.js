@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
 import Footer from '../components/Footer'
 import bulma from 'bulma/css/bulma.css'
+import highlight from 'highlight.js/styles/atelier-forest-light.css'
 
 export default ({ children }) => (
   <div>
@@ -12,6 +13,7 @@ export default ({ children }) => (
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     </Head>
     <style dangerouslySetInnerHTML={{ __html: bulma }} />
+    <style dangerouslySetInnerHTML={{ __html: highlight }} />
     <Navbar />
     <div className="notification">
       <div className="columns">
