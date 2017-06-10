@@ -2,16 +2,26 @@ import Page from '../layouts/main'
 
 export default () => (
   <Page>
-    <h1>Introduction</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.</p>
-    <h2>Why Testing?</h2>
-    <p>Curabitur accumsan turpis pharetra <strong>augue tincidunt</strong> blandit. Quisque condimentum maximus mi, sit amet commodo arcu rutrum id. Proin pretium urna vel cursus venenatis. Suspendisse potenti. Etiam mattis sem rhoncus lacus dapibus facilisis. Donec at dignissim dui. Ut et neque nisl.</p>
+    <h1>เขียน Test React/Redux อย่างไรดี?</h1>
+    <hr/>
+    <p>ก่อนอื่นต้องออกตัวก่อนนะครับ ว่าเนื้อหาทั้งหมดในนี้คือวิธีการที่ผมลองใช้และรู้สึกอยากแบ่งปัน อาจจะไม่ได้ถึงขั้นวิธีที่ดีที่สุด แต่ก็หวังว่าจะมีประโยชน์พอสมควรนะครับ ถ้าใครสนใจอยากแบ่งปันอะไรเพิ่มหรือมีข้อผิดพลาดอะไรในบทความนี้ สามารถเข้ามา contribute ได้ที่ <a href="https://github.com/aofleejay/next-js" target="_blank">Github</a> นี้เลยครับ</p>
+    <p>ในการเขียน React โค้ดของเราจะถูกเขียนอยู่ในรูปของ component ซึ่งเราจะเริ่มต้นเขียนเทสด้วยการเทส component ว่าทำงานได้ถูกต้องหรือไม่ หลักๆสิ่งที่เราจะเทสมีดังนี้</p>
     <ul>
-      <li>In fermentum leo eu lectus mollis, quis dictum mi aliquet.</li>
-      <li>Morbi eu nulla lobortis, lobortis est in, fringilla felis.</li>
-      <li>Ut non enim metus.</li>
+      <li><strong>UI</strong> ว่าแสดงผลถูกต้องหรือไม่</li>
+      <li><strong>state</strong> เช่น ค่า state เริ่มต้น</li>
+      <li><strong>props</strong> เช่น ค่า props เริ่มต้น, รับ props และนำไปแสดงผลได้ถูกต้อง</li>
+      <li><strong>event</strong> เช่น กดปุ่มแล้วเรียกใช้ function ได้ถูกต้อง </li>
     </ul>
-    <h3>How to write test in react/redux</h3>
-    <p>Quisque ante lacus, malesuada ac auctor vitae, congue <a href="#">non ante</a>. Phasellus lacus ex, semper ac tortor nec, fringilla condimentum orci. Fusce eu rutrum tellus.</p>
+    <p>เมื่อเราเทสทั้งหมดที่กล่าวมา ผมเชื่อว่าเราจะมั่นใจได้ในระดับหนึ่งเลยว่า component ของเราจะทำงานได้ถูกต้อง</p>
+    <p>สำหรับหลายคนที่แอพพลิเคชันเริ่มซับซ้อนมากขึ้น อาจจะมีการนำ <a href="http://redux.js.org/" target="_blank">Redux</a> เข้ามาใช้ ซึ่งเราก็จะเขียนเทสเช่นเดียวกัน ตัว Redux เองก็เขียนเทสได้ไม่ยาก เนื่องจากโค้ดแต่ละส่วนถูกแยกกันอย่างชัดเจน และการทำงานไม่ได้ซับซ้อนมากนัก แนะนำว่าเทสแต่ละส่วนให้ครบก็จะทำให้โค้ดของเราน่าเชื่อถือพอสมควรเลยครับ</p>
+    <h2>Tools ที่ใช้ในการเทส</h2>
+    <p>ในปัจจุบันการเขียนเทสใน Javascript นั้นมี tools ให้เลือกใช้เยอะมาก ในที่นี้ผมจะแนะนำตัวที่ได้รับความนิยมมากๆแล้วกันครับ</p>
+    <ul>
+      <li>Test runner - เป็นเครื่องมือที่ใช้ในการรันเทสครับ ที่คนใช้บ่อยๆก็จะมี <strong><a href="https://facebook.github.io/jest/" target="_blank">Jest</a></strong> กับ <strong><a href="https://mochajs.org/" target="_blank">Mocha</a></strong> ครับ</li>
+      <li>React test library - ในการเขียน React ก็จะต้องมีการเทส component ก็จะมีตัวช่วยที่ทำให้เราสามารถเทส component ได้ง่ายขึ้น ผมแนะนำ <strong><a href="https://github.com/airbnb/enzyme" target="_blank">Enzyme</a></strong> เลยครับ</li>
+      <li>Assertion library - ปกติแล้ว test runner จะสามารถ assert ได้อยู่แล้ว แต่ถ้าอยากเขียนโค้ด assert ให้ดูเข้าใจง่ายขึ้น อ่านแล้วคล้ายภาษาที่คนใช้ ก็แนะนำ <strong><a href="http://chaijs.com/" target="_blank">Chai</a></strong> เลยครับ</li>
+      <li>Mock, Stub library - ในการเขียน Unit Testing บางครั้งก็ต้องมีการควบคุมการทำงานของ Unit อื่นๆ เพื่อที่จะควบคุมการทำงานที่เกี่ยวข้องกับ Unit ที่เราจะเทสได้ ถ้าเลือกใช้ Jest จะมีเครื่องมือมาให้อยู่แล้ว หรือถ้าอยากใช้ตัวอื่นแนะนำ <strong><a href="http://sinonjs.org/" target="_blank">Sinon</a></strong> ครับ</li>
+    </ul>
+    <blockquote>เพิ่มความเห็นส่วนตัวนะครับ ถ้าไม่รู้จะเลือกใช้ตัวไหนดี ปกติแล้วผมจะเลือกตัวที่มี community ใหญ่ๆครับ เพราะตอนเริ่มใหม่เราไม่รู้ว่าจะเกิดปัญหาอะไรบ้าง ยิ่ง community ใหญ่ ยิ่งเรียนรู้ได้เร็วครับ แล้วหลังจากนั้นเมื่อใช้งานเข้าใจแล้ว ค่อยมาเลือกสิ่งที่ตรงกับการทำงานของเราครับ</blockquote>
   </Page>
 )
